@@ -14,9 +14,14 @@ class AuthController extends Controller
     {
         $remember = $request->has('remember_me') ? true : false;
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
+        //get user role
+        $user = User::where('email', $request->email)->first();
+        if (Auth::attempt($credentials, $remember) && $user->role == 'ADMIN' && $user->is_active == 1) {
             $request->session()->regenerate();
             return redirect()->intended('dashboard');
+        } else if (Auth::attempt($credentials, $remember) && $user->role == 'USER' && $user->is_active == 1) {
+            $request->session()->regenerate();
+            return redirect()->intended('home');
         }
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
