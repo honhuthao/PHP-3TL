@@ -28,15 +28,25 @@
             <div class="position-sticky">
                 <div class="list-group list-group-flush mx-3 mt-4">
                     <a href="/dashboard" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+                        <i class="fas fa-keyboard fa-fw me-3"></i><span>Product Catalog</span>
+                    </a>
+                    <a href="/dashboard/user" class="list-group-item list-group-item-action py-2 ripple"
+                        aria-current="true">
+                        <i class="fas fa-user-circle fa-fw me-3"></i><span>User</span>
                     </a>
                     <a href="/dashboard/category" class="list-group-item list-group-item-action py-2 ripple"
                         aria-current="true">
-                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Category</span>
+                        <i class="fas fa-list-ul fa-fw me-3"></i><span>Category</span>
                     </a>
                     <a href="/dashboard/product" class="list-group-item list-group-item-action py-2 ripple"
                         aria-current="true">
-                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Product</span>
+                        <i class="fas fa-keyboard fa-fw me-3"></i><span>Product</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                        <i class="fas fa-user-tag fa-fw me-3"></i><span>Customer</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+                        <i class="fas fa-file-invoice-dollar fa-fw me-3"></i><span>Invoice</span>
                     </a>
 
 
@@ -150,7 +160,7 @@
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="#">My profile</a></li>
                             <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
                         </ul>
                     </li>
                 </ul>

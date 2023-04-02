@@ -58,7 +58,7 @@ class CategoryController extends Controller
     {
         // validate
         $validated = $request->validate([
-            'name' => 'required'
+            'name' => 'required|unique:categories,name'
         ]);
         if (!$validated) {
             return response()->json(['message' => 'Cannot create category'], 400);

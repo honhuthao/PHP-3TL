@@ -12,6 +12,7 @@ class AuthController extends Controller
 
     function authenticate(Request $request)
     {
+        $remember = $request->has('remember_me') ? true : false;
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -53,7 +54,6 @@ class AuthController extends Controller
             $customer->address = $request->address;
             $customer->save();
             return redirect('/');
-            // TODO: edit route
         } else {
             return back()->with('fail', 'Something went wrong, try again later');
         }

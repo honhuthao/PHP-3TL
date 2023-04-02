@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MainDashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +30,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::group(['prefix' => 'dashboard'], function () {
-        Route::get('/', function () {
-            return view('dashboard.index');
+        Route::get('/', [MainDashboardController::class, 'index'])->name('dashboard.index');
+        Route::group(['prefix' => 'user'], function () {
+            Route::get('/', [UserController::class, 'index']);
+            Route::delete('/{id}', [UserController::class, 'delete']);
+            Route::get('/{id}', [UserController::class, 'get']);
+            Route::post('/', [UserController::class, 'create']);
+            Route::put('/{id}', [UserController::class, 'update']);
+            Route::put('/active/{id}', [UserController::class, 'activeUser']);
         });
         Route::group(['prefix' => 'category'], function () {
             Route::get('/', [CategoryController::class, 'index']);
